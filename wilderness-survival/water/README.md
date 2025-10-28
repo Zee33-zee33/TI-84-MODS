@@ -86,7 +86,7 @@ Yields: ~1 liter per day per bag
 ### Boiling (Most Reliable)
 
 - Bring to rolling boil
-- Maintain for 1 minute (add 1 minute per 1,000 ft elevation)
+- Maintain for 1 minute (add 1 minute per 1,000 feet elevation)
 - At 6,500+ feet: boil for 3 minutes
 - Let cool before drinking
 - Kills all pathogens (bacteria, viruses, parasites)
