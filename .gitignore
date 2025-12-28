@@ -1,0 +1,28 @@
+# Build artifacts
+*.o
+*.exe
+*.out
+*.app
+*.sav
+/src/games/2048/2048
+/tests/2048_test
+
+# Build directories
+build/
+bin/
+obj/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test outputs
+test_results/
+*.log
