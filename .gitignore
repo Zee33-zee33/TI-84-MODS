@@ -1,0 +1,15 @@
+# Build artifacts
+*.o
+test_engine
+
+# Save files
+save_slot_*.bin
+
+# Editor/IDE files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+/tmp/
