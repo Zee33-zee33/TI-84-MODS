@@ -1,0 +1,45 @@
+# Build artifacts
+*.o
+*.a
+*.bin
+*.8xp
+*.8xv
+*.8xl
+*.8xn
+*.8xm
+*.8xg
+*.8xs
+*.lst
+*.map
+*.log
+
+# Directories
+bin/
+build/
+obj/
+.cache/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# CE Toolchain
+CEdev/
+CEdev-*.tar.gz
+CEdev-*.zip
+
+# Test artifacts
+tests/*_stub
+tests/*.bin
+tests/*.8xp
+
+# Temporary files
+*.tmp
+.*.tmp
+tmp/
+temp/
