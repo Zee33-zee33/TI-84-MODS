@@ -32,9 +32,15 @@ int save_init(void) {
 #else
     /* Create data directory if it doesn't exist */
     #ifdef _WIN32
-        _mkdir("data");
+        int result = _mkdir("data");
+        if (result != 0 && errno != EEXIST) {
+            return -1;
+        }
     #else
-        mkdir("data", 0755);
+        int result = mkdir("data", 0755);
+        if (result != 0 && errno != EEXIST) {
+            return -1;
+        }
     #endif
     
     return 0;

@@ -15,6 +15,10 @@
  * This is a minimal ASCII font covering printable characters
  * Each byte represents one row of the character (8 rows = 8 bytes)
  * Bit 7 is leftmost pixel, Bit 0 is rightmost pixel
+ * 
+ * NOTE: Array is sized for 256 characters (FONT_CHARS * FONT_HEIGHT)
+ * but only characters 0x00-0x7F are defined here. The remaining
+ * characters (0x80-0xFF) are initialized to blank in font_init().
  */
 static const uint8_t embedded_font[FONT_CHARS * FONT_HEIGHT] = {
     /* Character 0x00-0x1F: Control chars (blank) */

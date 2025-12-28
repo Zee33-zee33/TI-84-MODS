@@ -60,6 +60,8 @@ int render_init(void) {
 }
 
 void render_clear(uint8_t color) {
+    /* Stub implementation: Silent no-op when framebuffer not initialized.
+     * In production, framebuffer will always be valid after render_init(). */
     if (!framebuffer) return;
     
 #ifdef PLATFORM_CE
