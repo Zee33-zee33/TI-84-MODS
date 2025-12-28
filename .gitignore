@@ -26,3 +26,6 @@ Thumbs.db
 # Test outputs
 test_results/
 *.log
+
+# CodeQL temporary files
+_codeql_*
