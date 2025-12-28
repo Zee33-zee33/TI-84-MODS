@@ -1,0 +1,50 @@
+# 2048 Tile Color Palette Placeholder
+
+This file serves as a placeholder for the 2048 tile graphics asset.
+
+## Asset Specification
+
+**File**: 2048_tiles.png
+**Type**: PNG Image
+**Purpose**: Tile color palette and texture reference
+
+### Tile Specifications
+
+Each tile should be 50x50 pixels with the following color scheme:
+
+| Value | Background Color (RGB) | Text Color (RGB) |
+|-------|------------------------|------------------|
+| 0     | (205, 193, 180)       | N/A              |
+| 2     | (238, 228, 218)       | (119, 110, 101)  |
+| 4     | (237, 224, 200)       | (119, 110, 101)  |
+| 8     | (242, 177, 121)       | (255, 255, 255)  |
+| 16    | (245, 149, 99)        | (255, 255, 255)  |
+| 32    | (246, 124, 95)        | (255, 255, 255)  |
+| 64    | (246, 94, 59)         | (255, 255, 255)  |
+| 128   | (237, 207, 114)       | (255, 255, 255)  |
+| 256   | (237, 204, 97)        | (255, 255, 255)  |
+| 512   | (237, 200, 80)        | (255, 255, 255)  |
+| 1024  | (237, 197, 63)        | (255, 255, 255)  |
+| 2048  | (237, 194, 46)        | (255, 255, 255)  |
+| 4096+ | (60, 58, 50)          | (255, 255, 255)  |
+
+### Additional Elements
+
+- Board background: RGB(187, 173, 160)
+- Screen background: RGB(250, 248, 239)
+- Tile margin: 5 pixels
+
+### Notes
+
+The actual PNG asset would contain:
+1. A sprite sheet with all tile backgrounds
+2. Reference tiles with numbers rendered
+3. UI elements (borders, backgrounds)
+
+For the MVP, colors are defined in code (2048_ui.c) and rendered programmatically.
+A future enhancement could load these tiles from the PNG asset for better visual quality.
+
+### To Create the Actual Asset
+
+Use any graphics editor (GIMP, Photoshop, etc.) to create tiles with the colors above.
+Save as PNG with transparency support.
