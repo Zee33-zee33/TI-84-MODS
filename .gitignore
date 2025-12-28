@@ -1,0 +1,47 @@
+# Build directories
+build/
+bin/
+
+# Save game data
+data/*.sav
+
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+# TI-84 CE files
+*.8xp
+*.8xv
+*.8xl
+*.8xn
+*.8xg
+*.8xc
+
+# Editor backup files
+*~
+*.bak
+*.swp
+*.swo
+.*.swp
+.*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Debug files
+*.dSYM/
+*.pdb
+*.ilk
