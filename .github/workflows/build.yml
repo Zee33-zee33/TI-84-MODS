@@ -1,0 +1,77 @@
+name: Build TI-84 CE Engine
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Install CE Toolchain
+      run: |
+        echo "Installing CE C/C++ Toolchain..."
+        wget https://github.com/CE-Programming/toolchain/releases/latest/download/CEdev-Linux.tar.gz
+        tar -xzf CEdev-Linux.tar.gz
+        export PATH=$PATH:$(pwd)/CEdev/bin
+        echo "$(pwd)/CEdev/bin" >> $GITHUB_PATH
+        
+    - name: Verify toolchain installation
+      run: |
+        cedev-config --version
+        ez80-clang --version
+        
+    - name: Build engine library
+      run: |
+        echo "Building engine library..."
+        make engine
+        
+    - name: Build tests
+      run: |
+        echo "Building smoke test..."
+        make tests
+        
+    - name: Check build artifacts
+      run: |
+        echo "Checking for build outputs..."
+        ls -lh src/engine/
+        ls -lh tests/
+        if [ -f "tests/engine_smoke.8xp" ]; then
+          echo "✓ engine_smoke.8xp created successfully"
+          file tests/engine_smoke.8xp
+        else
+          echo "✗ engine_smoke.8xp not found"
+          exit 1
+        fi
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ti84-ce-programs
+        path: |
+          tests/*.8xp
+          tests/*.bin
+        retention-days: 30
+        
+    - name: Build summary
+      run: |
+        echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Engine library compiled successfully" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Smoke test built successfully" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "- \`engine_smoke.8xp\` - Smoke test program" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Testing Instructions" >> $GITHUB_STEP_SUMMARY
+        echo "1. Download the artifacts from this build" >> $GITHUB_STEP_SUMMARY
+        echo "2. Load \`engine_smoke.8xp\` into CEmu" >> $GITHUB_STEP_SUMMARY
+        echo "3. Run the SMOKE program" >> $GITHUB_STEP_SUMMARY
+        echo "4. Verify 'ENGINE OK' appears on the screen" >> $GITHUB_STEP_SUMMARY
