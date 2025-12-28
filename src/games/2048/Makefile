@@ -1,12 +1,10 @@
 # Makefile for 2048 game
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -I../../engine
-LDFLAGS = 
 
 # Directories
 SRC_DIR = .
 ENGINE_DIR = ../../engine
-BUILD_DIR = build
 
 # Source files
 GAME_SRCS = 2048.c 2048_ui.c main.c
@@ -26,7 +24,7 @@ all: $(TARGET)
 
 # Build the game
 $(TARGET): $(ALL_OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 # Compile game source files
 %.o: %.c
